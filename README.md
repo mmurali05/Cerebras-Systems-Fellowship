@@ -50,8 +50,9 @@ interview_simulation Function:
 **Future Roadmap**:
 - Advanced Evaluation
    - Enhance response evaluation using LLMs to provide nuanced feedback (e.g., recognizing partially correct answers).
-- Gamification and Analytics
-   - Introduce scoring, progress tracking, and gamified elements to improve user engagement.
+- Video Walkthroughs:
+  - Provide youtube videos that explain topics for visual learners
+
 - Website 
    - Create a front-end website to deploy this simulator. 
 
