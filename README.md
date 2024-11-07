@@ -51,7 +51,7 @@ interview_simulation Function:
 - Advanced Evaluation
    - Enhance response evaluation using LLMs to provide nuanced feedback (e.g., recognizing partially correct answers).
 - Video Walkthroughs:
-  - Provide youtube videos that explain topics for visual learners
+  - Provide youtube videos that explain topics for visual learners.
 
 - Website 
    - Create a front-end website to deploy this simulator. 
