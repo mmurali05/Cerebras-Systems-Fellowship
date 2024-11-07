@@ -7,8 +7,8 @@ This platform simulates software engineering technical interview scenarios, prov
 
 **Goal**:
 - To create a dynamic, user-focused virtual interview preparation platform that:
-- Simulates realistic SWE technical interview scenarios drawn from topics such as LeetCode problems and real-world challenges.
-Evaluates and provides tailored feedback to users on their responses, helping them refine their problem-solving approaches.
+    - Simulates realistic SWE technical interview scenarios drawn from topics such as LeetCode problems and real-world challenges.
+    - Evaluates and provides tailored feedback to users on their responses, helping them refine their problem-solving approaches.
 
 **Success Criteria**:
 
