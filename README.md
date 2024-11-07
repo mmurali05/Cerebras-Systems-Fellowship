@@ -1,4 +1,4 @@
-# Cerebras-Fellowship
+# Cerebras-Systems-Fellowship
 
 **AI-Powered SWE Technical Interview Prep**
 
