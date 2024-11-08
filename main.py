@@ -61,6 +61,34 @@ def parse_question(output):
     solution = parts[1].strip() if len(parts) > 1 else "No solution provided."
     return {"problem": problem, "solution": solution}
 
+def evaluate_answer_with_llm(user_answer, expected_solution):
+    """
+    Use cerebras LLM to evaluate user's response + provide feedback on how close it is to expected solution
+    """
+
+    messages = [
+        {"role": "system", "content": "You are a helpful assistant that evaluates coding answers."},
+        {"role": "user", "content": f"Evaluate the following user's solution compared to the expected solution. Provide specific feedback on which parts are correct, partially correct, or incorrect.\n\nUser's Solution:\n{user_answer}\n\nExpected Solution:\n{expected_solution}\n\nProvide detailed feedback on the similarities and differences."}
+    ]
+    payload = {
+        "model": "llama3.1-8b",
+        "messages": messages,
+        "max_completion_tokens": 500
+    }
+
+    try:
+        response = requests.post(CEREBRAS_API_URL, headers = API_HEADERS, json=payload)
+        if response.status_code == 200:
+            output = response.json().get("choices", [])[0].get("message", {}).get("content", "")
+            return output
+        else:
+            print("Error in Cerebras API:", response.status_code)
+            print("Error Response Content:", response.text)
+            return "Error in evaluation. Please try again."
+    except requests.exceptions.RequestException as e:
+        print("Network error occurred during evaluation:", e)
+        return "Network error occurred. Please try again."                         
+
 # Function to simulate an interview session
 def interview_simulation():
     """
@@ -88,14 +116,20 @@ def interview_simulation():
     # Step 4: Capture the user's response
     user_answer = input("\nEnter your solution or press Enter to skip: ").strip()
 
-    # Step 5: Evaluate the user's response
+     # Step 5: Evaluate the user's response only if they did not skip
     expected_solution = question_data["solution"].strip()
-    print("\nEvaluating your response...")
-    if user_answer.lower() in expected_solution.lower():
-        print("Correct! Great job!")
+    if user_answer.lower() == "skip":
+        print("\nYou chose to skip the question. No evaluation performed.")
     else:
-        print("Incorrect. Here's the correct solution:")
-        print(expected_solution)
+        print("\nEvaluating your response...")
+        # Use LLM Evaluation for feedback on user answer
+        detailed_feedback = evaluate_answer_with_llm(user_answer, expected_solution)
+        print("\nDetailed Feedback:")
+        print(detailed_feedback)
+    
+    # Display the correct solution regardless of skip
+    print("\nHere's the correct solution:")
+    print(expected_solution)
 
     # Step 6: Prompt to repeat or exit
     repeat = input("\nWould you like to try another question? (yes/no): ").strip().lower()
