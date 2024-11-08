@@ -2,13 +2,15 @@
 
 **AI-Powered SWE Technical Interview Prep**
 
-**Project Overview**:
-This platform simulates software engineering technical interview scenarios, providing users with realistic questions and personalized feedback. By leveraging Cerebras’s resources and integrating advanced tools, the platform enables college students, new graduates, and professionals to enhance their interview preparedness.
+**Project Overview**
+This platform simulates technical interview scenarios for software engineering roles, generating realistic questions and providing tailored feedback to improve user readiness. Leveraging Cerebras AI resources and advanced language model integrations like LlamaIndex, the platform is designed for college students, new graduates, and professionals seeking a dynamic and personalized interview preparation experience.
+
 
 **Goal**:
 - To create a dynamic, user-focused virtual interview preparation platform that:
     - Simulates realistic SWE technical interview scenarios drawn from topics such as LeetCode problems and real-world challenges.
-    - Evaluates and provides tailored feedback to users on their responses, helping them refine their problem-solving approaches.
+    - Provides detailed, LLM-powered feedback to help users refine their solutions and understand correct approaches.
+
 
 **Success Criteria**:
 
@@ -28,9 +30,11 @@ The platform is tailored for:
 Dynamic Question Generation
 - Users select a topic and difficulty level (e.g., Arrays, Graphs, Dynamic Programming).
 - Questions are generated using the Cerebras API, integrating prompts tailored to simulate real interview conditions.
-Feedback on User Responses
-- The system evaluates user answers against expected solutions.
-- Provides detailed insights into areas of improvement.
+  
+LLM-Enhanced Feedback and Evaluation
+- Uses LlamaIndex and Cerebras language models to evaluate user responses.
+- Provides tailored feedback, indicating which parts of the solution are correct, partially correct, or incorrect, along with explanations for improvement.
+  
 Structured Outputs
 - Questions and solutions are parsed for clarity using a "### Solution" delimiter, ensuring that solutions are only displayed post-evaluation.
 Iterative Practice
@@ -44,16 +48,14 @@ Code Features:
    - Fetches interview questions with clear problem statements and step-by-step solutions.
 - parse_question Function:
    - Separates problems and solutions using the "### Solution" delimiter to ensure solutions are hidden initially.
-interview_simulation Function:
+- interview_simulation Function:
    - Simulates a complete interview process, including question generation, response capture, evaluation, and feedback.
 
 **Future Roadmap**:
-- Advanced Evaluation
-   - Enhance response evaluation using LLMs to provide nuanced feedback (e.g., recognizing partially correct answers).
-- Video Walkthroughs:
-  - Provide youtube videos that explain topics for visual learners.
-
-- Website 
-   - Create a front-end website to deploy this simulator. 
+- Behavioral Interview Module
+   - Use LlamaIndex for sentiment analysis and structured feedback on behavioral responses.
+- Website Deployment
+   - Develop a front-end interface to make the simulator widely accessible to users.
+ 
 
 
