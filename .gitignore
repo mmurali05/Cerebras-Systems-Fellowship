@@ -1,2 +1,2 @@
 # Ignore environment variable files
-.envgit git push origin main
+echo ".env" > .gitignore
