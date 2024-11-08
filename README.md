@@ -27,6 +27,7 @@ The platform is tailored for:
 - College students and new graduates preparing for technical interviews.
 
 **Enhanced Platform Features**:
+
 Dynamic Question Generation
 - Users select a topic and difficulty level (e.g., Arrays, Graphs, Dynamic Programming).
 - Questions are generated using the Cerebras API, integrating prompts tailored to simulate real interview conditions.
